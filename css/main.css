@@ -38,10 +38,12 @@ body {
 
 .al p {
   font-family: "MS PGothic", sans-serif;
+  font-size: 16px;
 }
 
 .al h1 {
   font-family: "MS Gothic", sans-serif;
+  font-size: 32px;
 }
 
 .al p,
