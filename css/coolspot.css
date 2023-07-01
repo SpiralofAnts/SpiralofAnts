@@ -1,0 +1,67 @@
+body {
+  background: #3163c6;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.coolspot {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px;
+  outline: 3px solid #009463;
+  background-color: #003100;
+  color: white;
+}
+
+.coolspot a {
+  text-decoration: underline;
+  color: #6b5218;
+}
+
+.coolspot a:visited {
+  color: #4a3910;
+}
+
+.coolspot p {
+  font-family: "MS PGothic", sans-serif;
+}
+
+.coolspot h1 {
+  font-family: "MS Gothic", sans-serif;
+}
+
+.coolspot p,
+.coolspot h1 {
+  color: #009463;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  font-family: "MS Gothic", sans-serif;
+}
+
+.header-buttons p {
+  margin: 0;
+  margin-top: -8px;
+  padding: 8px;
+  outline: 2px solid #396bd6;
+  border-radius: 0;
+}
+
+.header-buttons p:first-child {
+  border-radius: 0 0 0px 12.5px;
+}
+
+.header-buttons p:last-child {
+  border-radius: 0 0 12.5px 0px;
+}
+
+.header-buttons a {
+  color: #b51818;
+  text-decoration: underline;
+}
+
+.header-buttons a:visited {
+  color: #630000;
+  text-decoration: underline;
+}
