@@ -29,11 +29,11 @@ body {
 
 .al a {
   text-decoration: underline;
-  color: #26b800; /* Set default color for unclicked links */
+  color: #26b800;
 }
 
 .al a:visited {
-  color: #288a4d; /* Set color for clicked links */
+  color: #288a4d;
 }
 
 .al p {

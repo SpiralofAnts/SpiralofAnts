@@ -43,10 +43,12 @@ body {
 
 .coolspot p {
   font-family: "MS PGothic", sans-serif;
+  font-size: 20px;
 }
 
 .coolspot h1 {
   font-family: "MS Gothic", sans-serif;
+  font-size: 20px;
 }
 
 .coolspot p,
@@ -84,4 +86,11 @@ body {
 .header-buttons a:visited {
   color: #630000;
   text-decoration: underline;
+}
+
+.image-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

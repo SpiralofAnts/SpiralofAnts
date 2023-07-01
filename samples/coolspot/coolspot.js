@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
   var bgElement = document.querySelector('.coolspot-bg');
   
-  var scrollSpeed = 1; // Adjust the scrolling speed (increase or decrease the value as desired)
+  var scrollSpeed = 1;
   
   var initHeight = bgElement.offsetTop;
   
