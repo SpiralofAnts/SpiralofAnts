@@ -1,6 +1,15 @@
 body {
   background: #3163c6;
   font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+}
+
+.image-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index:1
 }
 
 .coolspot {
@@ -18,10 +27,8 @@ body {
   right: 0;
   bottom: 0;
   background-image: url("../samples/coolspot/7up-bg.png");
-  background-repeat: repeat-x;
-  background-position: top;
-  background-size: 100% auto;
   background-repeat: repeat;
+  background-position: top;
   background-size: auto;
   z-index: 1;
 }
@@ -66,7 +73,7 @@ body {
   margin: 0;
   margin-top: -8px;
   padding: 8px;
-  outline: 2px solid #396bd6;
+  outline: 2px solid #5a0000;
   border-radius: 0;
 }
 
@@ -86,11 +93,4 @@ body {
 .header-buttons a:visited {
   color: #630000;
   text-decoration: underline;
-}
-
-.image-container {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 }
