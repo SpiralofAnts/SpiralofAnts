@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "MS Gothic";
+  src: url(../fonts/MS-Gothic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "MS PGothic";
+  src: url(../fonts/MS-PGothic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Webdings";
+  src: url(../fonts/webdings.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(../fonts/SourceSansPro-Regular.ttf) format("ttf");
+}
+
 body {
   background: #f4e5b6;
   font-family: "Source Sans Pro", sans-serif;
@@ -10,6 +30,31 @@ body {
   width: 50vw;
   color: black;
   background-color: white;
+}
+
+.dev-div {
+  position: relative;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50vw;
+}
+
+.dev-div p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
+.dev-div h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.dev-div h2 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .main p,
