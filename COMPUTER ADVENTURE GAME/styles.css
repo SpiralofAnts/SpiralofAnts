@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'Adventurer';
+    src: url('fonts/Adventurer.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Squirrel';
+    src: url('fonts/Squirrel.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'MicroStyle';
+    src: url('fonts/MicroStyle.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'TheWall';
+    src: url('fonts/TheWall.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PixelTimesNewRoman';
+    src: url('fonts/PixelTimesNewRoman.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'YumeNikki';
+    src: url('fonts/YumeNikkiTitleScreen.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'iso_';
+    src: url('fonts/iso8.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'BerrticeonStd';
+    src: url('fonts/BerrticeonStd.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'webdings';
+    src: url('fonts/webdings.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'wingdings';
+    src: url('fonts/wingdings.woff2') format('woff2');
+}
+
+body {
+	margin: auto;
+	width: 50%;
+}
+
+.top-container {
+	display: block;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.game-title {
+	display: inline-block;
+	width: 35.5%;
+	font-family: 'iso_', sans-serif;
+	text-align: left;
+	margin-left: 5%;
+    font-size: 64px;
+}
+
+.game-icon {
+	display: inline-block;
+	float: right;
+	font-family: 'webdings', sans-serif;
+	text-align: center;
+	margin-right: 15%;
+	font-size: 186px;
+}
+
+.body-text {
+	text-align: center;
+	font-size: 32px;
+	padding: 4px;
+	}
+
+.text1 {
+    font-family: 'PixelTimesNewRoman', sans-serif;
+}
+
+.text2 {
+    font-family: 'Adventurer', sans-serif;
+}
+
+.text3 {
+    font-family: 'Squirrel', sans-serif;
+}
+
+.text4 {
+    font-family: 'MicroStyle', sans-serif;
+}
+
+.text5 {
+    font-family: 'YumeNikki', sans-serif;
+}
+
+.web {
+	font-family: 'webdings', sans-serif;
+}
+
+.wing {
+	font-family: 'wingdings', sans-serif;
+}
