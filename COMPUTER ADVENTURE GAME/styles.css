@@ -49,14 +49,26 @@
 }
 
 body {
+	background-color: #dddddd;
+}
+
+.main-content {
+	position: relative;
+	border-radius: 25px;
+	background-color: #ececec;
+	padding: 15px;
 	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
 	width: 50%;
 }
 
-.top-container {
+.top-elements {
+	position: absolute;
 	display: block;
-	margin-top: 100px;
-	margin-bottom: 100px;
+	top: 20px;
+	width: 96.5%;
+	height: 186px;
 }
 
 .game-title {
