@@ -78,35 +78,52 @@ body {
 }
 
 .body-text {
-	text-align: center;
-	font-size: 32px;
 	padding: 4px;
 	}
 
 .text1 {
     font-family: 'PixelTimesNewRoman', sans-serif;
+	text-align: center;
+	font-size: 32px;
 }
 
 .text2 {
     font-family: 'Adventurer', sans-serif;
+	text-align: center;
+	font-size: 32px;
 }
 
 .text3 {
     font-family: 'Squirrel', sans-serif;
+	text-align: center;
+	font-size: 32px;
 }
 
 .text4 {
     font-family: 'MicroStyle', sans-serif;
+	text-align: center;
+	font-size: 32px;
 }
 
 .text5 {
     font-family: 'YumeNikki', sans-serif;
+	text-align: center;
+	font-size: 32px;
 }
 
-.web {
-	font-family: 'webdings', sans-serif;
+.music-container {
+	display: block;
+	width: 50%;
+	margin-left: 25%;
+	border: 1px solid red;
 }
 
-.wing {
-	font-family: 'wingdings', sans-serif;
+.song-titles {
+	font-family: 'MicroStyle', sans-serif;
+	text-align: center;
+	font-size: 32px;
+}
+
+#music {
+	margin-left: 12.5%;
 }
