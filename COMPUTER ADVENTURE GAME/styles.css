@@ -48,6 +48,16 @@
     src: url('fonts/wingdings.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'EB Regular';
+    src: url('fonts/EB Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'EB Battle';
+    src: url('fonts/EB Battle.woff2') format('woff2');
+}
+
 body {
 	background-color: #dddddd;
 }
@@ -94,9 +104,9 @@ body {
 	}
 
 .text1 {
-    font-family: 'PixelTimesNewRoman', sans-serif;
+    font-family: 'EB Regular', sans-serif;
 	text-align: center;
-	font-size: 32px;
+	font-size: 24px;
 }
 
 .text2 {
@@ -106,7 +116,7 @@ body {
 }
 
 .text3 {
-    font-family: 'Squirrel', sans-serif;
+    font-family: 'PixelTimesNewRoman', sans-serif;
 	text-align: center;
 	font-size: 32px;
 }
@@ -117,10 +127,10 @@ body {
 	font-size: 32px;
 }
 
-.text5 {
-    font-family: 'YumeNikki', sans-serif;
+.header {
+    font-family: 'EB Battle', sans-serif;
 	text-align: center;
-	font-size: 32px;
+	font-size: 27px;
 }
 
 .music-container {
@@ -133,6 +143,25 @@ body {
 	font-family: 'MicroStyle', sans-serif;
 	text-align: center;
 	font-size: 32px;
+}
+
+.footer {
+	position: absolute;
+	left: 25%;
+	right: 25%;
+	bottom: -48px;
+	text-align: center;
+	font-family: 'EB Battle', sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+}
+	
+a:active {
+		color: #666666;
+}
+
+a:visited {
+		color: #666666;
 }
 
 #music {
