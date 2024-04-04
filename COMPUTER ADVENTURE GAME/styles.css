@@ -24,11 +24,6 @@
 }
 
 @font-face {
-    font-family: 'YumeNikki';
-    src: url('fonts/YumeNikkiTitleScreen.woff2') format('woff2');
-}
-
-@font-face {
     font-family: 'iso_';
     src: url('fonts/iso8.woff2') format('woff2');
 }
@@ -107,24 +102,6 @@ body {
     font-family: 'EB Regular', sans-serif;
 	text-align: center;
 	font-size: 24px;
-}
-
-.text2 {
-    font-family: 'Adventurer', sans-serif;
-	text-align: center;
-	font-size: 32px;
-}
-
-.text3 {
-    font-family: 'PixelTimesNewRoman', sans-serif;
-	text-align: center;
-	font-size: 32px;
-}
-
-.text4 {
-    font-family: 'MicroStyle', sans-serif;
-	text-align: center;
-	font-size: 32px;
 }
 
 .header {
