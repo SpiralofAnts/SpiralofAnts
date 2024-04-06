@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Squirrel';
+    src: url('fonts/Squirrel.woff2') format('woff2');
+}
+
+body {
+	background-color: #dddddd;
+}
+
+.main-content {
+	position: relative;
+	border-radius: 25px;
+	background-color: #ececec;
+	padding: 15px;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 50%;
+}
+
+.body-text {
+	padding: 4px;
+	}
+
+.text1 {
+    font-family: 'Squirrel', sans-serif;
+	text-align: center;
+	font-size: 32px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
