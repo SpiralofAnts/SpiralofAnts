@@ -104,6 +104,12 @@ body {
 	font-size: 24px;
 }
 
+.text2 {
+	font-family: 'BerrticeonStd', sans-serif;
+	text-align: center;
+	font-size: 32px;
+}
+
 .header {
     font-family: 'EB Battle', sans-serif;
 	text-align: center;
@@ -143,4 +149,10 @@ a:visited {
 
 #music {
 	margin-left: 12.5%;
+}
+
+#webdings-player {
+	font-family: 'webdings', sans-serif;
+	text-align: center;
+	font-size: 48px;
 }
