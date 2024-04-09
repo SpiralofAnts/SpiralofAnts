@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Computer Adventure Game Manual</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="main-content">
+		<div>
+			<div class="body-text text2">[S;G]<br>C-MOR M.III<br>To play, press the play buttons. To pause, do likewise.</div>
+			<br><br>
+			<div class="body-text text2">boot-up sequence</div>
+			<div class="body-text real-music" id="bu-player">4</div>
+			<div class="body-text text2">Gate of Steiner</div>
+			<div class="body-text real-music" id="sg-player">4</div>
+		</div>
+	</div>
+	
+<script>
+const sgPlayer = document.getElementById("sg-player")
+let WorldLine = 0;
+const gateOpen = document.createElement("AUDIO"); 
+const sgButton = document.getElementById("sg-player").innerHTML; 
+
+const buPlayer = document.getElementById("bu-player")
+let poweredState = 0;
+const powerOn = document.createElement("AUDIO"); 
+const buButton = document.getElementById("bu-player").innerHTML; 
+
+sgPlayer.addEventListener("click", SteiningGate);
+gateOpen.addEventListener("ended", function(){
+sgPlayer.innerHTML = sgButton.replace(";", "4");
+});
+
+buPlayer.addEventListener("click", BootUp);
+powerOn.addEventListener("ended", function(){
+buPlayer.innerHTML = buButton.replace(";", "4");
+});
+
+function SteiningGate(){
+	if (WorldLine === 0){
+		gateOpen.setAttribute("src","music/Gate of Steiner.mp3");
+		document.body.appendChild(gateOpen);
+		gateOpen.play();
+		sgPlayer.innerHTML = sgButton.replace("4", ";");
+		WorldLine = 1;
+	} else {
+		if (sgPlayer.innerHTML === ";"){
+			gateOpen.pause();
+			sgPlayer.innerHTML = sgButton.replace(";", "4");
+			
+		} else {
+			gateOpen.play();
+			sgPlayer.innerHTML = sgButton.replace("4", ";");
+		}
+	}
+}
+
+function BootUp(){
+	if (poweredState === 0){
+		powerOn.setAttribute("src","music/boot-up sequence.mp3");
+		document.body.appendChild(powerOn);
+		powerOn.play();
+		buPlayer.innerHTML = buButton.replace("4", ";");
+		poweredState = 1;
+	} else {
+		if (buPlayer.innerHTML === ";"){
+			powerOn.pause();
+			buPlayer.innerHTML = buButton.replace(";", "4");
+			
+		} else {
+			powerOn.play();
+			buPlayer.innerHTML = buButton.replace("4", ";");
+		}
+	}
+}
+</script>
+</body>
+</html>

@@ -1,4 +1,28 @@
 @font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Bold.woff2') format('woff2');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Italic.woff2') format('woff2');
+	font-style: italic;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
     font-family: 'Adventurer';
     src: url('fonts/Adventurer.woff2') format('woff2');
 }
@@ -99,9 +123,9 @@ body {
 	}
 
 .text1 {
-    font-family: 'EB Regular', sans-serif;
+    font-family: 'Consolas', sans-serif;
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 .text2 {
@@ -151,8 +175,11 @@ a:visited {
 	margin-left: 12.5%;
 }
 
-#webdings-player {
+.real-music {
+	margin-left: 45%;
+	margin-right: 45%;
 	font-family: 'webdings', sans-serif;
 	text-align: center;
 	font-size: 48px;
+	max-width: 10%;
 }
