@@ -3,6 +3,30 @@
     src: url('fonts/Squirrel.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Bold.woff2') format('woff2');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Italic.woff2') format('woff2');
+	font-style: italic;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
 body {
 	background-color: #dddddd;
 }
@@ -26,6 +50,12 @@ body {
     font-family: 'Squirrel', sans-serif;
 	text-align: center;
 	font-size: 32px;
+}
+
+.text2 {
+    font-family: 'Consolas', sans-serif;
+	text-align: center;
+	font-size: 20px;
 }
 
 img {
