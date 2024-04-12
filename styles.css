@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Bold.woff2') format('woff2');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Italic.woff2') format('woff2');
+	font-style: italic;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+body {
+	background-color: #dddddd;
+}
+
+.main-content {
+	position: relative;
+	border-radius: 25px;
+	background-color: #ececec;
+	padding: 15px;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 50%;
+}
+
+.top-elements {
+	position: absolute;
+	display: block;
+	top: 20px;
+	width: 96.5%;
+	height: 186px;
+}
+
+.game-title {
+	display: inline-block;
+	width: 35.5%;
+	font-family: 'iso_', sans-serif;
+	text-align: left;
+	margin-left: 5%;
+    font-size: 64px;
+}
+
+.game-icon {
+	display: inline-block;
+	float: right;
+	font-family: 'webdings', sans-serif;
+	text-align: center;
+	margin-right: 10%;
+	font-size: 186px;
+}
+
+.body-text {
+	padding: 4px;
+	}
+
+.text1 {
+    font-family: 'Consolas', sans-serif;
+	text-align: center;
+	font-size: 20px;
+}
+	
+a:active {
+		color: #666666;
+}
+
+a:visited {
+		color: #666666;
+}
