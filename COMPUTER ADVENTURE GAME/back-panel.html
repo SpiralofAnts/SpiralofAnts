@@ -15,6 +15,8 @@
 			<div class="body-text real-music" id="bu-player">4</div>
 			<div class="body-text text2">Gate of Steiner</div>
 			<div class="body-text real-music" id="sg-player">4</div>
+			<div class="body-text text2">Master Porky's Theme</div>
+			<div class="body-text real-music" id="mp-player">4</div>
 		</div>
 	</div>
 	
@@ -29,6 +31,11 @@ let poweredState = 0;
 const powerOn = document.createElement("AUDIO"); 
 const buButton = document.getElementById("bu-player").innerHTML; 
 
+const mpPlayer = document.getElementById("mp-player")
+let absolutelySafe = 0;
+const aged = document.createElement("AUDIO"); 
+const mpButton = document.getElementById("mp-player").innerHTML; 
+
 sgPlayer.addEventListener("click", SteiningGate);
 gateOpen.addEventListener("ended", function(){
 sgPlayer.innerHTML = sgButton.replace(";", "4");
@@ -38,6 +45,8 @@ buPlayer.addEventListener("click", BootUp);
 powerOn.addEventListener("ended", function(){
 buPlayer.innerHTML = buButton.replace(";", "4");
 });
+
+mpPlayer.addEventListener("click", ApologizeProfusely);
 
 function SteiningGate(){
 	if (WorldLine === 0){
@@ -73,6 +82,26 @@ function BootUp(){
 		} else {
 			powerOn.play();
 			buPlayer.innerHTML = buButton.replace("4", ";");
+		}
+	}
+}
+
+function ApologizeProfusely(){
+	if (absolutelySafe === 0){
+		aged.setAttribute("src","music/Master Porky's Theme.mp3");
+		aged.setAttribute("loop",true);
+		document.body.appendChild(aged);
+		aged.play();
+		mpPlayer.innerHTML = mpButton.replace("4", ";");
+		absolutelySafe = 1;
+	} else {
+		if (mpPlayer.innerHTML === ";"){
+			aged.pause();
+			mpPlayer.innerHTML = mpButton.replace(";", "4");
+			
+		} else {
+			aged.play();
+			mpPlayer.innerHTML = mpButton.replace("4", ";");
 		}
 	}
 }
