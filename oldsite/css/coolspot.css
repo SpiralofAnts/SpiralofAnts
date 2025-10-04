@@ -1,0 +1,96 @@
+body {
+  background: #3163c6;
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+}
+
+.image-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index:1
+}
+
+.coolspot {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px;
+  outline: 3px solid #009463;
+  overflow: hidden;
+}
+
+.coolspot-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../samples/coolspot/7up-bg.png");
+  background-repeat: repeat;
+  background-position: top;
+  background-size: auto;
+  z-index: 1;
+}
+
+.coolspot-content {
+  position: relative;
+  z-index: 2;
+  font-size: 18px;
+}
+
+.coolspot a {
+  text-decoration: underline;
+  color: #6b5218;
+}
+
+.coolspot a:visited {
+  color: #4a3910;
+}
+
+.coolspot p {
+  font-family: "MS PGothic", sans-serif;
+  font-size: 20px;
+}
+
+.coolspot h1 {
+  font-family: "MS Gothic", sans-serif;
+  font-size: 20px;
+}
+
+.coolspot p,
+.coolspot h1 {
+  color: #009463;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  font-family: "MS Gothic", sans-serif;
+}
+
+.header-buttons p {
+  margin: 0;
+  margin-top: -8px;
+  padding: 8px;
+  outline: 2px solid #5a0000;
+  border-radius: 0;
+}
+
+.header-buttons p:first-child {
+  border-radius: 0 0 0px 12.5px;
+}
+
+.header-buttons p:last-child {
+  border-radius: 0 0 12.5px 0px;
+}
+
+.header-buttons a {
+  color: #b51818;
+  text-decoration: underline;
+}
+
+.header-buttons a:visited {
+  color: #630000;
+  text-decoration: underline;
+}

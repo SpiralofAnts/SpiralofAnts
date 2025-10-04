@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Proof of Concept</title>
+    <link rel="stylesheet" href="styles/main.css"/>
+	<link rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body>
+	<div class="main-content">
+		<div id="volume-slider">
+			<input type="range" id="volume" name="volume" min="0" max="255" value="204" step="1"/><label for="volume">Volume</label>
+		</div>
+		<div>
+			<div class="body-text song-titles">Born to Fight</div>
+			<div id="btf-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Steel Beowulf</div>
+			<div id="sb-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">The Sword That Cleaves Evil</div>
+			<div id="tstce-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Trombe!</div>
+			<div id="trombe-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Peace and Disturbance</div>
+			<div id="pad-player" class="real-music">4</div>
+			<br><br><br>
+			<div class="body-text text1">Neat little thing I've constructed here, ey?<br><br>
+			To give a little more context, every piece of music on this page loops infinitely and seamlessly once begun, and it can be stopped and restarted at any time.<br><br>
+			Additionally, only one song can be played at a time. I know this doesn't sound like a whole lot, but it took me roughly six hours just to get a skeleton of this working, and an additional three just to figure out how to get other songs to stop when you start one.<br><br>
+			In any case though, this is just a proof of concept. I plan to make a few pages with much more songs so that the public might enjoy looped music, handily accessible from wherever they might be. If you'd like one, please contact me at <a href="mailto:orionaolsonforbiz.com">orionaolsonforbiz.com</a>, or, better yet, my Discord account highwayreckoning.
+			</div>
+		</div>
+	</div>
+<script src="scripts/looping-music.js"></script>
+</body>
+</html>

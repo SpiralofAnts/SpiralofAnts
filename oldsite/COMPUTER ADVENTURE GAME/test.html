@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>test</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+	<div class="main-content">
+		<div>
+			<div class="body-text song-titles">Born to Fight</div>
+			<div id="btf-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Steel Beowulf</div>
+			<div id="sb-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">The Sword That Cleaves Evil</div>
+			<div id="tstce-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Trombe!</div>
+			<div id="trombe-player" class="real-music">4</div>
+			<br>
+			<div class="body-text song-titles">Peace and Disturbance</div>
+			<div id="pad-player" class="real-music">4</div>
+		</div>
+	</div>
+	
+<script>
+const buttonBTF = document.getElementById("btf-player");
+const buttonSB = document.getElementById("sb-player");
+const buttonTSTCE = document.getElementById("tstce-player");
+const buttonPAD = document.getElementById("pad-player");
+const buttonTrombe = document.getElementById("trombe-player");
+
+let bufferBTF;
+let audioBTF;
+let sourceBTF;
+let bufferSB;
+let audioSB;
+let sourceSB;
+let bufferTSTCE;
+let audioTSTCE;
+let sourceTSTCE;
+let bufferPAD;
+let audioPAD;
+let sourcePAD;
+let bufferTrombe;
+let audioTrombe;
+let sourceTrombe;
+
+buttonBTF.addEventListener("click", async () => {
+	if (buttonSB.innerHTML === ";"){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	};
+	if (buttonTSTCE.innerHTML === ";"){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	};
+	if (buttonPAD.innerHTML === ";"){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	};
+	if (buttonTrombe.innerHTML === ";"){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	};
+	if (!audioBTF){
+		audioBTF = new AudioContext();
+		await loadAudioBTF();
+	} else if (buttonBTF.innerHTML === ";"){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	} else {
+		loadAudioBTF();
+	}
+});
+
+buttonSB.addEventListener("click", async () => {
+	if (buttonBTF.innerHTML === ";"){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	} else {};
+	if (buttonTSTCE.innerHTML === ";"){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	}
+	if (buttonPAD.innerHTML === ";"){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	};
+	if (buttonTrombe.innerHTML === ";"){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	};
+	if (!audioSB){
+		audioSB = new AudioContext();
+		await loadAudioSB();
+	} else if (buttonSB.innerHTML === ";"){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	} else {
+		loadAudioSB();
+	}
+});
+
+buttonTSTCE.addEventListener("click", async () => {
+	if (buttonBTF.innerHTML === ";"){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	} else {};
+	if (buttonSB.innerHTML === ";"){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	}
+	if (buttonPAD.innerHTML === ";"){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	};
+	if (buttonTrombe.innerHTML === ";"){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	};
+	if (!audioTSTCE){
+		audioTSTCE = new AudioContext();
+		await loadAudioTSTCE();
+	} else if (buttonTSTCE.innerHTML === ";"){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	} else {
+		loadAudioTSTCE();
+	}
+});
+
+buttonPAD.addEventListener("click", async () => {
+	if (buttonBTF.innerHTML === ";"){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	} else {};
+	if (buttonSB.innerHTML === ";"){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	}
+	if (buttonTSTCE.innerHTML === ";"){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	};
+	if (buttonTrombe.innerHTML === ";"){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	};
+	if (!audioPAD){
+		audioPAD = new AudioContext();
+		await loadAudioPAD();
+	} else if (buttonPAD.innerHTML === ";"){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	} else {
+		loadAudioPAD();
+	}
+});
+
+buttonTrombe.addEventListener("click", async () => {
+	if (buttonBTF.innerHTML === ";"){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	} else {};
+	if (buttonSB.innerHTML === ";"){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	}
+	if (buttonTSTCE.innerHTML === ";"){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	};
+	if (buttonPAD.innerHTML === ";"){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	};
+	if (!audioTrombe){
+		audioTrombe = new AudioContext();
+		await loadAudioTrombe();
+	} else if (buttonTrombe.innerHTML === ";"){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	} else {
+		loadAudioTrombe();
+	}
+});
+
+function playBufferBTF(bufferBTF) {
+	sourceBTF = audioBTF.createBufferSource();
+	sourceBTF.buffer = bufferBTF;
+	sourceBTF.connect(audioBTF.destination);
+	sourceBTF.loop = true;
+	sourceBTF.loopStart = 13.05;
+	sourceBTF.loopEnd = 83.45;
+	sourceBTF.start();
+	buttonBTF.innerHTML = ";";
+}
+
+function playBufferSB(bufferSB) {
+	sourceSB = audioSB.createBufferSource();
+	sourceSB.buffer = bufferSB;
+	sourceSB.connect(audioSB.destination);
+	sourceSB.loop = true;
+	sourceSB.loopStart = 2.94662921348;
+	sourceSB.loopEnd = 71.7106741573;
+	sourceSB.start();
+	buttonSB.innerHTML = ";";
+}
+
+function playBufferTSTCE(bufferTSTCE) {
+	sourceTSTCE = audioTSTCE.createBufferSource();
+	sourceTSTCE.buffer = bufferTSTCE;
+	sourceTSTCE.connect(audioTSTCE.destination);
+	sourceTSTCE.loop = true;
+	sourceTSTCE.loopStart = 18.4829545455;
+	sourceTSTCE.loopEnd = 73.0284090909 ;
+	sourceTSTCE.start();
+	buttonTSTCE.innerHTML = ";";
+}
+
+function playBufferPAD(bufferPAD) {
+	sourcePAD = audioPAD.createBufferSource();
+	sourcePAD.buffer = bufferPAD;
+	sourcePAD.connect(audioPAD.destination);
+	sourcePAD.loop = true;
+	sourcePAD.loopStart = 0.25;
+	sourcePAD.loopEnd = 64.25;
+	sourcePAD.start();
+	buttonPAD.innerHTML = ";";
+}
+
+function playBufferTrombe(bufferTrombe) {
+	sourceTrombe = audioTrombe.createBufferSource();
+	sourceTrombe.buffer = bufferTrombe;
+	sourceTrombe.connect(audioTrombe.destination);
+	sourceTrombe.loop = true;
+	sourceTrombe.loopStart = 13.0617647059;
+	sourceTrombe.loopEnd = 80.8264705882;
+	sourceTrombe.start();
+	buttonTrombe.innerHTML = ";";
+}
+
+async function loadAudioBTF(){
+	try {
+		// Load an audio file
+		const responseBTF = await fetch("music/Born to Fight.ogg");
+		// Decode it
+		bufferBTF = await audioBTF.decodeAudioData(await responseBTF.arrayBuffer(), playBufferBTF);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioSB(){
+	try {
+		// Load an audio file
+		const responseSB = await fetch("music/Steel Beowulf.ogg");
+		// Decode it
+		bufferSB = await audioSB.decodeAudioData(await responseSB.arrayBuffer(), playBufferSB);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioTSTCE(){
+	try {
+		// Load an audio file
+		const responseTSTCE = await fetch("music/The Sword That Cleaves Evil.ogg");
+		// Decode it
+		bufferTWTCE = await audioTSTCE.decodeAudioData(await responseTSTCE.arrayBuffer(), playBufferTSTCE);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioPAD(){
+	try {
+		// Load an audio file
+		const responsePAD = await fetch("music/Peace and Disturbance.ogg");
+		// Decode it
+		bufferPAD = await audioPAD.decodeAudioData(await responsePAD.arrayBuffer(), playBufferPAD);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioTrombe(){
+	try {
+		// Load an audio file
+		const responseTrombe = await fetch("music/Trombe!.ogg");
+		// Decode it
+		bufferTrombe = await audioTrombe.decodeAudioData(await responseTrombe.arrayBuffer(), playBufferTrombe);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+</script>
+</body>
+</html>

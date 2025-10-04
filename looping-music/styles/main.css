@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Bold.woff2') format('woff2');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-Italic.woff2') format('woff2');
+	font-style: italic;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('fonts/Consolas-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+    font-family: 'webdings';
+    src: url('fonts/webdings.woff2') format('woff2');
+}
+
+body {
+	background-color: #dddddd;
+}
+
+label {
+	font-family: 'Consolas';
+}
+
+.main-content {
+	position: relative;
+	border-radius: 25px;
+	background-color: #ececec;
+	padding: 15px;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 50%;
+}
+
+.top-elements {
+	position: absolute;
+	display: block;
+	top: 20px;
+	width: 96.5%;
+	height: 186px;
+}
+
+.body-text {
+	padding: 4px;
+	}
+
+.text1 {
+    font-family: 'Consolas', sans-serif;
+	text-align: center;
+	font-size: 20px;
+}
+
+.song-titles {
+	font-family: 'Consolas', sans-serif;
+	text-align: center;
+	font-size: 32px;
+}
+
+.real-music {
+	margin-left: 45%;
+	margin-right: 45%;
+	font-family: 'webdings', sans-serif;
+	text-align: center;
+	font-size: 48px;
+	max-width: 10%;
+}
+
+input[type="range"] {
+  writing-mode: vertical-lr;
+  direction: rtl;
+}
+
+#volume-slider {
+	float: left;
+	position: absolute;
+}
