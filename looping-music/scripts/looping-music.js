@@ -217,7 +217,7 @@ buttonBTF.addEventListener("click", async () => {
 	if (!audioCtx){
 		audioCtx = new AudioContext();
 		musVolume = audioCtx.createGain();
-		await loadAudioBTF();
+		await loadAudioPDR();
 	} else if (buttonPDR.innerHTML === ";") {
 		sourcePDR.stop();
 		buttonPDR.innerHTML = "4";
