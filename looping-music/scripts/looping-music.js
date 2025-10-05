@@ -193,7 +193,7 @@ buttonTrombe.addEventListener("click", async () => {
 	};
 });
 
-buttonBTF.addEventListener("click", async () => {
+buttonPDR.addEventListener("click", async () => {
 	if (sourceBTF){
 		sourceBTF.stop();
 		buttonBTF.innerHTML = "4";
