@@ -3,6 +3,7 @@ const buttonSB = document.getElementById("sb-player");
 const buttonTSTCE = document.getElementById("tstce-player");
 const buttonPAD = document.getElementById("pad-player");
 const buttonTrombe = document.getElementById("trombe-player");
+const buttonPDR = document.getElementById("pdr-player");
 
 const volumeSlider = document.getElementById("volume");
 
@@ -18,6 +19,8 @@ let bufferPAD;
 let sourcePAD;
 let bufferTrombe;
 let sourceTrombe;
+let bufferPDR;
+let sourcePDR;
 
 volumeSlider.addEventListener("input", function(){
 	if(musVolume){
@@ -26,6 +29,10 @@ volumeSlider.addEventListener("input", function(){
 });
 
 buttonBTF.addEventListener("click", async () => {
+	if (sourcePDR){
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	};
 	if (sourceSB){
 		sourceSB.stop();
 		buttonSB.innerHTML = "4";
@@ -55,6 +62,10 @@ buttonBTF.addEventListener("click", async () => {
 });
 
 buttonSB.addEventListener("click", async () => {
+	if (sourcePDR){
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	};
 	if (sourceBTF){
 		sourceBTF.stop();
 		buttonBTF.innerHTML = "4";
@@ -84,6 +95,10 @@ buttonSB.addEventListener("click", async () => {
 });
 
 buttonTSTCE.addEventListener("click", async () => {
+	if (sourcePDR){
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	};
 	if (sourceBTF){
 		sourceBTF.stop();
 		buttonBTF.innerHTML = "4";
@@ -113,6 +128,10 @@ buttonTSTCE.addEventListener("click", async () => {
 });
 
 buttonPAD.addEventListener("click", async () => {
+	if (sourcePDR){
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	};
 	if (sourceBTF){
 		sourceBTF.stop();
 		buttonBTF.innerHTML = "4";
@@ -142,6 +161,10 @@ buttonPAD.addEventListener("click", async () => {
 });
 
 buttonTrombe.addEventListener("click", async () => {
+	if (sourcePDR){
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	};
 	if (sourceBTF){
 		sourceBTF.stop();
 		buttonBTF.innerHTML = "4";
@@ -167,6 +190,39 @@ buttonTrombe.addEventListener("click", async () => {
 		buttonTrombe.innerHTML = "4";
 	} else {
 		await loadAudioTrombe();
+	};
+});
+
+buttonBTF.addEventListener("click", async () => {
+	if (sourceBTF){
+		sourceBTF.stop();
+		buttonBTF.innerHTML = "4";
+	};
+	if (sourceSB){
+		sourceSB.stop();
+		buttonSB.innerHTML = "4";
+	};
+	if (sourceTSTCE){
+		sourceTSTCE.stop();
+		buttonTSTCE.innerHTML = "4";
+	};
+	if (sourcePAD){
+		sourcePAD.stop();
+		buttonPAD.innerHTML = "4";
+	};
+	if (sourceTrombe){
+		sourceTrombe.stop();
+		buttonTrombe.innerHTML = "4";
+	};
+	if (!audioCtx){
+		audioCtx = new AudioContext();
+		musVolume = audioCtx.createGain();
+		await loadAudioBTF();
+	} else if (buttonPDR.innerHTML === ";") {
+		sourcePDR.stop();
+		buttonPDR.innerHTML = "4";
+	} else {
+		await loadAudioPDR();
 	};
 });
 
@@ -235,6 +291,19 @@ function playBufferTrombe(bufferTrombe) {
 	buttonTrombe.innerHTML = ";";
 }
 
+function playBufferPDR(bufferPDR) {
+	sourcePDR = audioCtx.createBufferSource();
+	sourcePDR.buffer = bufferPDR;
+	sourcePDR.loop = true;
+	sourcePDR.loopStart = (64*(60/70));
+	sourcePDR.loopEnd = (128*(60/70));
+	musVolume.gain.setValueAtTime((volumeSlider.value / 255), audioCtx.currentTime);
+	sourcePDR.connect(musVolume);
+	musVolume.connect(audioCtx.destination);
+	sourcePDR.start();
+	buttonPDR.innerHTML = ";";
+}
+
 async function loadAudioBTF(){
 	try {
 		const responseBTF = await fetch("SRW OG/song0032.ogg");
@@ -275,6 +344,15 @@ async function loadAudioTrombe(){
 	try {
 		const responseTrombe = await fetch("SRW OG/song0030.ogg");
 		bufferTrombe = await audioCtx.decodeAudioData(await responseTrombe.arrayBuffer(), playBufferTrombe);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioPDR(){
+	try {
+		const responsePDR = await fetch("GT PD/SEQ_GHOST_BGM037.ogg");
+		bufferPDR = await audioCtx.decodeAudioData(await responsePDR.arrayBuffer(), playBufferPDR);
   } catch (err) {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
