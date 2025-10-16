@@ -69,6 +69,13 @@ label {
 	text-align: center;
 	font-size: 32px;
 }
+.song-subtitles {
+	font-family: 'Consolas', sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-style: italic;
+	color: #808080;
+}
 
 .real-music {
 	margin-left: 45%;
