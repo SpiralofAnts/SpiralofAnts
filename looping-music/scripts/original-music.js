@@ -34,24 +34,19 @@ buttonIHF.addEventListener("click", async () => {
 });
 
 buttonTB.addEventListener("click", async () => {
-	console.log("buttonTB clicked!");
 	if (sourceIHF){
 		sourceIHF.stop();
 		buttonIHF.innerHTML = "4";
-		console.log("In His Footsteps (Ares's Theme) stopped!");
 	};
 	if (!audioCtx){
 		audioCtx = new AudioContext();
 		musVolume = audioCtx.createGain();
 		await loadAudioTB();
-		console.log("The Basics (Ares's Battle Theme) started!");
 	} else if (buttonTB.innerHTML === ";") {
 		sourceTB.stop();
 		buttonTB.innerHTML = "4";
-		console.log("The Basics (Ares's Battle Theme) paused!");
 	} else {
 		await loadAudioTB();
-		console.log("The Basics (Ares's Battle Theme) resumed!");
 	};
 });
 
@@ -69,7 +64,6 @@ function playBufferIHF(bufferIHF) {
 }
 
 function playBufferTB(bufferTB) {
-	console.log("playBufferTB reached!");
 	sourceTB = audioCtx.createBufferSource();
 	sourceTB.buffer = bufferTB;
 	sourceTB.loop = true;
@@ -92,7 +86,6 @@ async function loadAudioIHF(){
 }
 
 async function loadAudioTB(){
-	console.log("loadAudioTB reached!");
 	try {
 		const responseTB = await fetch("The Basics.ogg");
 		bufferTB = await audioCtx.decodeAudioData(await responseTB.arrayBuffer(), playBufferTB);
