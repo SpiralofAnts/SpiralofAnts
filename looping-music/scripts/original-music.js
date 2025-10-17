@@ -1,4 +1,5 @@
 const buttonIHF = document.getElementById("ihf-player");
+const buttonTB = document.getElementById("tb-player");
 
 const volumeSlider = document.getElementById("volume");
 
@@ -6,6 +7,8 @@ let audioCtx;
 let musVolume;
 let bufferIHF;
 let sourceIHF;
+let bufferTB;
+let sourceTB;
 
 volumeSlider.addEventListener("input", function(){
 	if(musVolume){
@@ -14,6 +17,10 @@ volumeSlider.addEventListener("input", function(){
 });
 
 buttonIHF.addEventListener("click", async () => {
+	if (sourceTB){
+		sourceTB.stop();
+		buttonTB.innerHTML = "4";
+	};
 	if (!audioCtx){
 		audioCtx = new AudioContext();
 		musVolume = audioCtx.createGain();
@@ -26,39 +33,22 @@ buttonIHF.addEventListener("click", async () => {
 	};
 });
 
-// OLD REMOVED BUTTON FROM LOOPING-MUSIC INDEX, USE ONLY FOR REFERENCE
-//buttonSB.addEventListener("click", async () => {
-//	if (sourcePDR){
-//		sourcePDR.stop();
-//		buttonPDR.innerHTML = "4";
-//	};
-//	if (sourceBTF){
-//		sourceBTF.stop();
-//		buttonBTF.innerHTML = "4";
-//	};
-//	if (sourceTSTCE){
-//		sourceTSTCE.stop();
-//		buttonTSTCE.innerHTML = "4";
-//	};
-//	if (sourcePAD){
-//		sourcePAD.stop();
-//		buttonPAD.innerHTML = "4";
-//	};
-//	if (sourceTrombe){
-//		sourceTrombe.stop();
-//		buttonTrombe.innerHTML = "4";
-//	};
-//	if (!audioCtx){
-//		audioCtx = new AudioContext();
-//		musVolume = audioCtx.createGain();
-//		await loadAudioSB();
-//	} else if (buttonSB.innerHTML === ";") {
-//		sourceSB.stop();
-//		buttonSB.innerHTML = "4";
-//	} else {
-//		await loadAudioSB();
-//	};
-//});
+buttonTB.addEventListener("click", async () => {
+	if (sourceIHF){
+		sourceIHF.stop();
+		buttonIHF.innerHTML = "4";
+	};
+	if (!audioCtx){
+		audioCtx = new AudioContext();
+		musVolume = audioCtx.createGain();
+		await loadAudioTB();
+	} else if (buttonTB.innerHTML === ";") {
+		sourceTB.stop();
+		buttonTB.innerHTML = "4";
+	} else {
+		await loadAudioTB();
+	};
+});
 
 function playBufferIHF(bufferIHF) {
 	sourceIHF = audioCtx.createBufferSource();
@@ -73,10 +63,32 @@ function playBufferIHF(bufferIHF) {
 	buttonIHF.innerHTML = ";";
 }
 
+function playBufferTB(bufferTB) {
+	sourceTB = audioCtx.createBufferSource();
+	sourceTB.buffer = bufferTB;
+	sourceTB.loop = true;
+	sourceTB.loopStart = (160*(60/187));
+	sourceTB.loopEnd = (256*(60/187));
+	musVolume.gain.setValueAtTime((volumeSlider.value / 255), audioCtx.currentTime);
+	sourceTB.connect(musVolume);
+	musVolume.connect(audioCtx.destination);
+	sourceTB.start();
+	buttonTB.innerHTML = ";";
+}
+
 async function loadAudioIHF(){
 	try {
 		const responseIHF = await fetch("In His Footsteps.ogg");
 		bufferIHF = await audioCtx.decodeAudioData(await responseIHF.arrayBuffer(), playBufferIHF);
+  } catch (err) {
+    console.error(`Unable to fetch the audio file. Error: ${err.message}`);
+  }
+}
+
+async function loadAudioTB(){
+	try {
+		const responseTB = await fetch("The Basics.ogg");
+		bufferTB = await audioCtx.decodeAudioData(await responseTB.arrayBuffer(), playBufferTB);
   } catch (err) {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
